@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+<h1>All Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Task", new_task_path %>
